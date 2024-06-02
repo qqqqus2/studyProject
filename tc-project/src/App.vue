@@ -1,15 +1,22 @@
 <template>
-    <div id="app">
-        <router-view></router-view>
-    </div>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
-<script>
-export default {
-    name: "App",
-};
-</script>
+<script setup>
+import { onMounted } from 'vue';
 
-<style>
-/* 스타일 추가 */
-</style>
+const loadStyles = () => {
+  const link = document.createElement('link');
+  link.id = 'dynamic-styles';
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = '/src/assets/css/front.css';
+  document.head.appendChild(link);
+};
+
+onMounted(() => {
+  loadStyles(); // Initial load
+});
+</script>

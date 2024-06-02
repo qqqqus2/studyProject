@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>login Page</h1>
+        <h1>회원가입</h1>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Home",
+    name: "Member Join",
 };
 </script>

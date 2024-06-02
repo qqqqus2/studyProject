@@ -1,0 +1,213 @@
+.detail-box {
+  padding: 2rem;
+  border: 0.1rem solid #d9d9d9;
+  border-radius: 1.2rem;
+  background-color: #f9f9fb;
+  @include font(1.6rem, 400, 2.4rem);
+  color: $text-sub-color;
+  li {
+    display: flex;
+    justify-content: space-between;
+    & > strong {
+      color: $black-color;
+    }
+    & + li {
+      margin-top: 0.8rem;
+    }
+  }
+  & + .btn {
+    margin-top: 2.4rem;
+  }
+}
+.desc-title + .detail-box {
+  margin-top: 2.4rem;
+}
+
+.list-box.type-my-claim {
+  margin-top: 1.2rem;
+  & > li {
+    padding: 0;
+    display: block;
+    & > a {
+      position: relative;
+      color: $black-color;
+      padding: 2rem;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      border-radius: 1.2rem;
+      & > .date {
+        display: flex;
+        align-items: center;
+        @include font(1.4rem, 500, 2rem);
+        .badge-icon {
+          margin-left: 0.8rem;
+        }
+        em {
+          text-align: right;
+          flex: 1;
+          color: $primary-hover;
+        }
+      }
+      & > .tit,
+      .tit strong {
+        margin-top: 1rem;
+        @include font(1.8rem, 700, 2.8rem);
+      }
+      .tit-list {
+        margin-top: 1.2rem;
+        @include font(1.6rem, 700, 2.4rem);
+      }
+      & > ul {
+        margin-top: 0.8rem;
+      }
+    }
+  }
+  .link:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 2.4rem;
+    height: 2.4rem;
+    top: 7.2rem;
+    right: 2rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071Z' fill='%231A1B1D'/%3E%3C/svg%3E%0A");
+  }
+}
+
+.list-box.type-my-insur,
+.list-box.type-my-hospital {
+  & > li {
+    display: block;
+    & > div {
+      display: flex;
+    }
+    .list-inner {
+      margin-top: 1.2rem;
+    }
+  }
+  .msg {
+    margin-top: 1.2rem;
+    padding: 0.6rem 1rem;
+    background-color: $readonly-color;
+    border-radius: 0.8rem;
+    @include font(1.4rem, 400, 2rem);
+    color: $text-body-color;
+  }
+}
+.list-box {
+  &.type-mypage {
+    .address {
+      @include font(1.6rem, 400, 2.4rem);
+      color: $text-body-color;
+    }
+    .phone,
+    .birth {
+      @include font(1.4rem, 500, 2rem);
+      color: $black-color;
+    }
+    & > li > .btn + .btn {
+      margin-left: 0.8rem;
+    }
+    & > li > a {
+      display: flex;
+      flex: 1;
+    }
+  }
+}
+
+.list-claim-file {
+  margin: 0 -2.4rem;
+  background-color: #f8fbff;
+  & > li {
+    padding: 2.4rem;
+    border-top: 0.1rem solid $primary-blue2;
+    &:last-child {
+      border-bottom: 0.1rem solid $primary-blue2;
+    }
+    .tit {
+      @include font(1.6rem, 400, 2.4rem);
+    }
+    .btns {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      width: 100%;
+      .btn {
+        width: calc(50% - 0.4rem);
+      }
+    }
+  }
+  & + .msg-box {
+    margin-top: 3.2rem;
+  }
+}
+
+.tit-form {
+  & + .table-wrap,
+  & + .tit-wrap {
+    margin-top: 1.2rem;
+  }
+  & + .list-setting {
+    margin-top: 2.4rem;
+  }
+}
+
+.list-setting {
+  & > li {
+    min-height: 4.8rem;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    & > span:first-child {
+      flex: 1;
+    }
+    & + li {
+      margin-top: 1.2rem;
+    }
+    & > a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $black-color;
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 2.4rem;
+        height: 2.4rem;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.29289 19.7071C7.90237 19.3166 7.90237 18.6834 8.29289 18.2929L14.5858 12L8.29289 5.70711C7.90237 5.31658 7.90237 4.68342 8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071L9.70711 19.7071C9.31658 20.0976 8.68342 20.0976 8.29289 19.7071Z' fill='%231A1B1D'/%3E%3C/svg%3E%0A");
+      }
+      & > span {
+        flex: 1;
+        color: $black-color;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+    .badge-icon,
+    .fc-blue {
+      margin-left: 1.2rem;
+    }
+  }
+  &.type1 {
+    & > li {
+      min-height: 2.6rem;
+    }
+    .desc-title + & {
+      margin-top: 2.4rem;
+    }
+  }
+}
+
+.accordion.type-treatment {
+  margin: 1.3rem -2.4rem 0;
+  border-bottom: 0.1rem solid #d9d9d9;
+  .accordion-content > div {
+    display: block;
+    padding: 2.4rem 2.4rem 1.7rem;
+    background-color: #f8fbff;
+  }
+}

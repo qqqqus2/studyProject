@@ -1,0 +1,157 @@
+// 스크롤 형태의 탭
+.tab-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: 0.3s;
+}
+.tab-menu {
+  margin: 0 -2.4rem;
+  @include media-min-width(1024) {
+    margin: 0 -4rem;
+  }
+}
+.tab-scroll {
+  position: relative;
+  @include scroll-x;
+  @include scroll-hide;
+}
+.tab-list {
+  position: relative;
+  display: inline-flex;
+  min-width: 100%;
+  white-space: nowrap;
+  text-align: center;
+
+  .tab {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+.tab {
+  position: relative;
+  text-align: center;
+  width: auto;
+}
+.tab-round-menu {
+  .tab-list {
+    gap: 0 0.6rem;
+  }
+  .tab {
+    a {
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+      line-height: 2rem;
+      font-weight: 700;
+      border-radius: 9rem;
+      background-color: $line-color;
+      display: inline-block;
+
+      color: $text-body-color;
+    }
+    &.active > a {
+      background-color: $base-txt-color;
+      color: $white-color;
+    }
+  }
+}
+
+.tab-line-menu {
+  position: relative;
+  .tab-list {
+    gap: 0 2rem;
+  }
+  .tab-line {
+    height: 0.4rem;
+    border-radius: 0.4rem 0.4rem 0 0;
+    background: $black-color;
+  }
+  .tab-list {
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: auto;
+      height: 0.2rem;
+      background: $box-line;
+    }
+  }
+  .tab {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    & > a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3.5rem;
+      color: $text-sub-color;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      overflow: hidden;
+      padding: 0 0.3rem;
+      transition: 0.3s;
+    }
+    &.active > a {
+      color: $black-color;
+      &:after {
+        left: 0;
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
+  &.tab-fixed {
+    .tab-list {
+      padding: 0;
+      // padding: 0 0.8rem;
+      &:before {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+// 공통 일반 탭
+.common-type {
+  .tab-list {
+    display: flex;
+    width: 100%;
+    background-color: $primary-blue3;
+    border-radius: 0.8rem;
+    .tab {
+      flex: 1 1 auto;
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      padding: 1rem;
+      font-weight: 600;
+      width: 100%;
+      a {
+        display: block;
+        height: 100%;
+        color: $primary-hover;
+      }
+      &.active {
+        border-radius: 0.8rem;
+        background-color: $white-color;
+        border: 0.1rem solid $primary-color;
+        box-shadow: 0.2rem 0.2rem 0.8rem 0 rgba(0, 0, 0, 0.05);
+        font-weight: 700;
+        a {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
