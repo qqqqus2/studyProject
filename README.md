@@ -1,4 +1,4 @@
-# stduy project
+# 스터디 프로젝트
 
 This template should help get you started developing with Vue 3 in Vite.
 
