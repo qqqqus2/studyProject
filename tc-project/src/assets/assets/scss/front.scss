@@ -1,0 +1,32 @@
+//base
+@import 'base/variables';
+@import 'base/function';
+@import 'base/reset';
+@import 'base/fonts';
+        
+
+//공통 레이아웃
+@import 'layout/common'; //공통 색상 및 함수
+@import 'layout/layout';
+
+//공통 네비게이션
+@import 'layout/header';
+@import 'layout/footer';
+
+//공통 컴포넌트
+@import 'components/buttons';
+@import 'components/form';
+@import 'components/table';
+@import 'components/datePicker';
+@import 'components/pagination';
+@import 'components/tab';
+@import 'components/popup';
+@import 'components/accordion';
+@import 'components/swiper';
+
+//페이지 리스트
+@import 'pages/list';
+@import 'pages/claim';
+@import 'pages/member';
+@import 'pages/mypage';
+@import 'pages/customer';

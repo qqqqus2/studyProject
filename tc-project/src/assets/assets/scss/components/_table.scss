@@ -1,0 +1,59 @@
+/*** 공통 테이블 스타일 시작 ***/
+.table-wrap {
+  border-top: 0.1rem solid $black-color;
+}
+.table {
+  table-layout: fixed;
+  width: 100%;
+  th,
+  td {
+    @include font(1.6rem, 400, 2.4rem);
+    border-bottom: 0.1rem solid $box-line;
+    padding: 1.2rem 1.2rem;
+    text-align: left;
+    border-collapse: collapse;
+    word-break: break-word;
+    @include media-min-width(1024) {
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+    & + td {
+      border-left: 0.1rem solid $box-line;
+    }
+    &:last-child {
+      border-right: 0;
+    }
+  }
+  th {
+    @include font(1.6rem, 600, 2.4rem);
+    background-color: $readonly-color;
+    border-right: 0.1rem solid $box-line;
+    border-left: 0;
+    width: 12rem;
+
+    & + td {
+      border-left: 0.1rem solid $box-line;
+    }
+    @include media-min-width(1024) {
+      &.w-130 {
+        width: 15rem !important;
+      }
+    }
+  }
+  &.type-2 {
+    td,
+    th {
+      border-top: 0.1rem solid $black-color;
+      // border-top: 0.1rem solid $box-line;
+      font-size: 1.4rem;
+    }
+  }
+}
+.cols-3 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  .checkbox {
+    margin-left: 0;
+  }
+}
+/*** 공통 테이블 스타일 끝 ***/
