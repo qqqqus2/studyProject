@@ -119,6 +119,7 @@
 import { ref, onMounted } from "vue";
 import { commonUi } from "@/main";
 
+<<<<<<< HEAD:tc-project/src/pages/login/LoginEasy.vue
 onMounted(() => {
     commonUi.init();
     extractLastNumber();
@@ -140,5 +141,10 @@ const extractLastNumber = () => {
     if (match) {
         lastNumber.value = parseInt(match[1], 10);
     }
+=======
+<script>
+export default {
+    name: "Login",
+>>>>>>> 1eca4b73d0f0aab7ea94dc40b768e537cff0c6ce:tc-project/src/pages/login/Login.vue
 };
 </script>

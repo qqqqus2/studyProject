@@ -1,0 +1,88 @@
+// 웹 버전 로케이션
+.location-wrap {
+  // margin-bottom: 2.2rem;
+  border-bottom: 0.1rem solid;
+  border-color: #cbd4e1;
+  background-color: #eaeff8;
+  // 실손청구 배경색
+  &.bg-1 {
+    background-color: #e3f0ff;
+  }
+  // 자녀청구 배경색
+  &.bg-2 {
+    background-color: #e0f5fa;
+  }
+  // 대리청구 배경색
+  &.bg-3 {
+    background-color: #e0faee;
+  }
+  // 고객지원 배경색
+  &.bg-4 {
+    background-color: #f1efff;
+  }
+  // 마이페이지 배경색
+  &.bg-5 {
+    background-color: #fefdee;
+  }
+  // 시스템소개 배경색
+  &.bg-6 {
+    background-color: #e8e9fd;
+  }
+  // default 배경색
+  .inner {
+    display: flex;
+    align-items: center;
+    height: 9rem;
+    padding: 0 2rem;
+    .location-nav {
+      display: inline-flex;
+      margin-left: auto;
+      span {
+        font-weight: 700;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        a {
+          color: $base-txt-color;
+        }
+        &:last-child {
+          color: $primary-color;
+        }
+        &::before {
+          content: '';
+          width: 2.4rem;
+          height: 2.4rem;
+          margin-left: 1.2rem;
+          margin-right: 1.2rem;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.21967 6.21967C8.92678 6.51256 8.92678 6.98744 9.21967 7.28033L13.5643 11.625L9.21967 15.9697C8.92678 16.2626 8.92678 16.7374 9.21967 17.0303C9.51256 17.3232 9.98744 17.3232 10.2803 17.0303L15.1553 12.1553C15.4482 11.8624 15.4482 11.3876 15.1553 11.0947L10.2803 6.21967C9.98744 5.92678 9.51256 5.92678 9.21967 6.21967Z' fill='%23333333'/%3E%3C/svg%3E");
+        }
+        &.home {
+          a {
+            font-size: 1.6rem;
+            font-weight: 600;
+          }
+          &::before {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.8rem;
+            margin-left: 0rem;
+            position: relative;
+            bottom: 0.1rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.41205 2.39252C9.73748 2.06708 10.2651 2.06708 10.5906 2.39252L18.0906 9.89252C18.416 10.218 18.416 10.7456 18.0906 11.071C17.7651 11.3965 17.2375 11.3965 16.912 11.071L16.668 10.827V17.1484C16.668 18.0689 15.9218 18.8151 15.0013 18.8151H5.0013C4.08083 18.8151 3.33464 18.0689 3.33464 17.1484V10.8269L3.09056 11.071C2.76512 11.3965 2.23748 11.3965 1.91205 11.071C1.58661 10.7456 1.58661 10.218 1.91205 9.89252L9.41205 2.39252ZM5.0013 9.16028V17.1484H7.5013V13.8151C7.5013 12.8946 8.24749 12.1484 9.16797 12.1484H10.8346C11.7551 12.1484 12.5013 12.8946 12.5013 13.8151V17.1484H15.0013V9.16028L10.0013 4.16028L5.0013 9.16028ZM10.8346 17.1484V13.8151H9.16797V17.1484H10.8346Z' fill='%23333333'/%3E%3C/svg%3E");
+          }
+        }
+      }
+    }
+  }
+  .page-tit {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 700;
+    color: $black-color;
+  }
+}
