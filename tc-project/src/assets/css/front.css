@@ -29365,6 +29365,8 @@ input[type=number] {
   border-radius: 0.8rem;
   color: #222;
   background-color: #fff;
+  resize: none;
+  width: 100% !important;
 }
 .textarea .size {
   font-size: 1.6rem;
@@ -29388,10 +29390,6 @@ input[type=number] {
 .desc-title + .msg-form, .tit-form + .msg-form {
   margin-top: 2.4rem;
 }
-.msg-form + .form-wrap {
-  margin-top: 2.4rem;
-}
-
 .req {
   color: #e00c3e;
   margin-left: 0.2rem;
@@ -31239,9 +31237,6 @@ html.mobile .popup.bottom .pop-body:first-child {
     display: none;
   }
 }
-.desc-title + div, .desc-title + .form-wrap {
-  margin-top: 2.4rem;
-}
 @media (min-width: 1024px) {
   .desc-title + div, .desc-title + .form-wrap {
     margin-top: 6rem;
@@ -31375,14 +31370,6 @@ html.mobile .popup.bottom .pop-body:first-child {
     font-size: 1.8rem;
     font-weight: 600;
     line-height: 2.8rem;
-  }
-}
-.form-wrap .form-row + .form-row {
-  margin-top: 2.4rem;
-}
-@media (min-width: 1024px) {
-  .form-wrap .form-row + .form-row {
-    margin-top: 3.2rem;
   }
 }
 .form-wrap .form-row.phone-row {

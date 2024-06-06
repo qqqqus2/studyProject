@@ -1,1204 +1,1138 @@
 /* input reset */
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
-input[type='number'] {
-  appearance: textfield;
-  -moz-appearance: textfield;
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 /* 공통 input 스타일 시작 */
 .input-box {
-  position: relative;
-  font-size: 1.8rem;
-
-  &.inline-flex {
-    .inline-flex + .btn {
-      margin-left: 0.8rem;
-      min-width: 10rem;
-      width: auto;
-
-      @include media-min-width(1024) {
-        margin-left: 1.2rem;
-        min-width: 20rem;
-      }
-    }
-  }
-
-  input {
-    color: $input-txt;
-    border-color: transparent;
-    background-color: transparent;
-    font-weight: 400;
-    border: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 1.7rem;
-
-    &:focus,
-    &:hover {
-      border-color: transparent;
-      outline: none;
-    }
-  }
-
-  .inline-flex {
-    border-style: solid;
-    border-color: $input-line;
-  }
-
-  &.focus {
-    .inline-flex {
-      border-color: $input-focus-line;
-      // outline: 0.1rem dashed $error-color;
-    }
-  }
-
-  &.hasValue {
-    .input-etc {
-      button {
-        &.input-del {
-          width: 2rem;
-          flex: 1 1 auto;
-          opacity: 1;
-          margin-left: 0.8rem;
-        }
-      }
-    }
-  }
-
-  .btn-search {
-    width: 2rem;
-    height: 2rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 2rem;
-    border-radius: 0;
-    padding: 0;
-    margin-left: 0.5rem;
-    background-color: transparent;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C13.3137 16 16 13.3137 16 10C16 6.68629 13.3137 4 10 4ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0976 20.6834 22.0976 20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18C5.58172 18 2 14.4183 2 10Z' fill='black'/%3E%3C/svg%3E");
-  }
-
-  // 필수 요소
-  .required {
-    font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 2rem;
-    display: block;
-
-    &::after {
-      content: '*';
-      display: inline-block;
-      color: $error-color;
-    }
-  }
-
-  // 인풋 이외의 요소들
-  .input-etc {
     position: relative;
-    margin-left: auto;
-    display: inline-flex;
-    //gap: 0 0.8rem;
-    padding-left: 0.8rem;
-    align-items: center;
+    font-size: 1.8rem;
 
-    .remain-time {
-      color: $input-focus-line;
-      @include font(1.3rem, 400, 1.7rem);
+    &.inline-flex {
+        .inline-flex + .btn {
+            margin-left: 0.8rem;
+            min-width: 10rem;
+            width: auto;
+
+            @include media-min-width(1024) {
+                margin-left: 1.2rem;
+                min-width: 20rem;
+            }
+        }
     }
-
-    button {
-      width: 2rem;
-      height: 2rem;
-      padding: 0;
-      font-size: 0;
-      margin: 0;
-      background-size: contain;
-      background-position: center;
-      border: 0;
-      background-repeat: no-repeat;
-
-      &.input-del {
-        opacity: 0;
-        width: 0;
-        flex: 0 0 auto;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.833313 10.0002C0.833313 4.93755 4.93737 0.833496 9.99998 0.833496C15.0626 0.833496 19.1666 4.93755 19.1666 10.0002C19.1666 15.0628 15.0626 19.1668 9.99998 19.1668C4.93737 19.1668 0.833313 15.0628 0.833313 10.0002ZM6.91072 6.91091C7.23616 6.58547 7.7638 6.58547 8.08923 6.91091L9.99998 8.82165L11.9107 6.91091C12.2362 6.58547 12.7638 6.58547 13.0892 6.91091C13.4147 7.23634 13.4147 7.76398 13.0892 8.08942L11.1785 10.0002L13.0892 11.9109C13.4147 12.2363 13.4147 12.764 13.0892 13.0894C12.7638 13.4149 12.2362 13.4149 11.9107 13.0894L9.99998 11.1787L8.08923 13.0894C7.7638 13.4149 7.23616 13.4149 6.91072 13.0894C6.58529 12.764 6.58529 12.2363 6.91072 11.9109L8.82147 10.0002L6.91072 8.08942C6.58529 7.76398 6.58529 7.23634 6.91072 6.91091Z' fill='%2392969F'/%3E%3C/svg%3E");
-      }
-
-      &.show-toggle {
-        margin-left: 0.8rem;
-      }
-
-      &.show-toggle.off {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.91074 1.91058C2.23618 1.58514 2.76382 1.58514 3.08926 1.91058L5.62283 4.44416C6.92414 3.73567 8.41621 3.33317 10.0004 3.33317C14.1061 3.33317 17.5794 6.03189 18.7472 9.75016C18.7983 9.91272 18.7983 10.087 18.7472 10.2496C18.2033 11.9814 17.1603 13.4903 15.7877 14.609L18.0893 16.9106C18.4147 17.236 18.4147 17.7637 18.0893 18.0891C17.7638 18.4145 17.2362 18.4145 16.9107 18.0891L1.91074 3.08909C1.58531 2.76366 1.58531 2.23602 1.91074 1.91058ZM6.8637 5.68503L8.30682 7.12814C8.80302 6.83508 9.38218 6.6665 10 6.6665C11.841 6.6665 13.3333 8.15889 13.3333 9.99984C13.3333 10.6177 13.1648 11.1968 12.8717 11.693L14.6017 13.423C15.7242 12.5497 16.5914 11.3648 17.0739 9.99985C16.0441 7.08604 13.2648 4.99984 10.0004 4.99984C8.87957 4.99984 7.81751 5.2452 6.8637 5.68503ZM11.6103 10.4317C11.6471 10.294 11.6667 10.1493 11.6667 9.99984C11.6667 9.07936 10.9205 8.33317 10 8.33317C9.85054 8.33317 9.70582 8.35273 9.56816 8.38949L11.6103 10.4317ZM3.85407 6.81132C4.22106 7.08905 4.29343 7.6117 4.0157 7.9787C3.5552 8.5872 3.18569 9.26762 2.9269 9.99981C3.95666 12.9136 6.73592 14.9998 10.0004 14.9998C10.4819 14.9998 10.9521 14.9546 11.4071 14.8683C11.8593 14.7825 12.2954 15.0796 12.3811 15.5318C12.4669 15.9839 12.1698 16.42 11.7176 16.5058C11.1608 16.6114 10.5866 16.6665 10.0004 16.6665C5.89461 16.6665 2.42133 13.9678 1.2535 10.2495C1.20245 10.087 1.20245 9.91265 1.2535 9.7501C1.57176 8.73681 2.06092 7.79985 2.68669 6.97295C2.96442 6.60595 3.48707 6.53359 3.85407 6.81132Z' fill='%2392969F'/%3E%3C/svg%3E");
-      }
-
-      &.show-toggle.on {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cg clip-path='url(%23clip0_43_1899)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.98582 13.3202C9.10182 13.3195 8.25418 12.9682 7.62894 12.3432C7.0037 11.7183 6.65193 10.8708 6.65082 9.98683C6.65082 8.1485 8.14666 6.6535 9.98582 6.6535C10.8698 6.65416 11.7175 7.00551 12.3427 7.63044C12.9679 8.25537 13.3197 9.10282 13.3208 9.98683C13.3208 11.8252 11.825 13.3202 9.98582 13.3202ZM9.99999 3.3335C5.39999 3.3335 1.66666 7.36683 1.66666 10.0002C1.66666 12.5718 5.48082 16.6668 9.99999 16.6668C14.5192 16.6668 18.3333 12.5718 18.3333 10.0002C18.3333 7.36683 14.5992 3.3335 9.99999 3.3335Z' fill='%23D9D9D9'/%3E%3Cpath d='M9.99999 11.6668C10.9205 11.6668 11.6667 10.9206 11.6667 10.0002C11.6667 9.07969 10.9205 8.3335 9.99999 8.3335C9.07952 8.3335 8.33332 9.07969 8.33332 10.0002C8.33332 10.9206 9.07952 11.6668 9.99999 11.6668Z' fill='%23D9D9D9'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_43_1899'%3E%3Crect width='20' height='20' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
-      }
-    }
-  }
-
-  // input text type-1
-  &.textType-1 {
-    box-sizing: border-box;
 
     input {
-      padding: 0.8rem 0;
+        color: $input-txt;
+        border-color: transparent;
+        background-color: transparent;
+        font-weight: 400;
+        border: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 1.7rem;
+
+        &:focus,
+        &:hover {
+            border-color: transparent;
+            outline: none;
+        }
     }
 
     .inline-flex {
-      width: 100%;
-      align-items: center;
-      border-bottom-width: 0.1rem;
+        border-style: solid;
+        border-color: $input-line;
     }
-  }
 
-  // input text type-2
-  &.textType-2 {
-    .inline-flex {
-      width: 100%;
-      align-items: center;
-      border-radius: 0.8rem;
-      border-width: 0.1rem;
-      padding: 1.1rem 1.6rem;
-      background-color: $white-color;
+    &.focus {
+        .inline-flex {
+            border-color: $input-focus-line;
+            // outline: 0.1rem dashed $error-color;
+        }
+    }
 
-      &.disabled {
-        border-color: $input-disabled-line;
-        background-color: $input-disabled-bg;
+    &.hasValue {
+        .input-etc {
+            button {
+                &.input-del {
+                    width: 2rem;
+                    flex: 1 1 auto;
+                    opacity: 1;
+                    margin-left: 0.8rem;
+                }
+            }
+        }
+    }
+
+    .btn-search {
+        width: 2rem;
+        height: 2rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 2rem;
+        border-radius: 0;
+        padding: 0;
+        margin-left: 0.5rem;
+        background-color: transparent;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10 4C6.68629 4 4 6.68629 4 10C4 13.3137 6.68629 16 10 16C13.3137 16 16 13.3137 16 10C16 6.68629 13.3137 4 10 4ZM2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0976 20.6834 22.0976 20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18C5.58172 18 2 14.4183 2 10Z' fill='black'/%3E%3C/svg%3E");
+    }
+
+    // 필수 요소
+    .required {
+        font-size: 1.3rem;
+        font-weight: 400;
+        line-height: 2rem;
+        display: block;
+
+        &::after {
+            content: "*";
+            display: inline-block;
+            color: $error-color;
+        }
+    }
+
+    // 인풋 이외의 요소들
+    .input-etc {
+        position: relative;
+        margin-left: auto;
+        display: inline-flex;
+        //gap: 0 0.8rem;
+        padding-left: 0.8rem;
+        align-items: center;
+
+        .remain-time {
+            color: $input-focus-line;
+            @include font(1.3rem, 400, 1.7rem);
+        }
+
+        button {
+            width: 2rem;
+            height: 2rem;
+            padding: 0;
+            font-size: 0;
+            margin: 0;
+            background-size: contain;
+            background-position: center;
+            border: 0;
+            background-repeat: no-repeat;
+
+            &.input-del {
+                opacity: 0;
+                width: 0;
+                flex: 0 0 auto;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.833313 10.0002C0.833313 4.93755 4.93737 0.833496 9.99998 0.833496C15.0626 0.833496 19.1666 4.93755 19.1666 10.0002C19.1666 15.0628 15.0626 19.1668 9.99998 19.1668C4.93737 19.1668 0.833313 15.0628 0.833313 10.0002ZM6.91072 6.91091C7.23616 6.58547 7.7638 6.58547 8.08923 6.91091L9.99998 8.82165L11.9107 6.91091C12.2362 6.58547 12.7638 6.58547 13.0892 6.91091C13.4147 7.23634 13.4147 7.76398 13.0892 8.08942L11.1785 10.0002L13.0892 11.9109C13.4147 12.2363 13.4147 12.764 13.0892 13.0894C12.7638 13.4149 12.2362 13.4149 11.9107 13.0894L9.99998 11.1787L8.08923 13.0894C7.7638 13.4149 7.23616 13.4149 6.91072 13.0894C6.58529 12.764 6.58529 12.2363 6.91072 11.9109L8.82147 10.0002L6.91072 8.08942C6.58529 7.76398 6.58529 7.23634 6.91072 6.91091Z' fill='%2392969F'/%3E%3C/svg%3E");
+            }
+
+            &.show-toggle {
+                margin-left: 0.8rem;
+            }
+
+            &.show-toggle.off {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.91074 1.91058C2.23618 1.58514 2.76382 1.58514 3.08926 1.91058L5.62283 4.44416C6.92414 3.73567 8.41621 3.33317 10.0004 3.33317C14.1061 3.33317 17.5794 6.03189 18.7472 9.75016C18.7983 9.91272 18.7983 10.087 18.7472 10.2496C18.2033 11.9814 17.1603 13.4903 15.7877 14.609L18.0893 16.9106C18.4147 17.236 18.4147 17.7637 18.0893 18.0891C17.7638 18.4145 17.2362 18.4145 16.9107 18.0891L1.91074 3.08909C1.58531 2.76366 1.58531 2.23602 1.91074 1.91058ZM6.8637 5.68503L8.30682 7.12814C8.80302 6.83508 9.38218 6.6665 10 6.6665C11.841 6.6665 13.3333 8.15889 13.3333 9.99984C13.3333 10.6177 13.1648 11.1968 12.8717 11.693L14.6017 13.423C15.7242 12.5497 16.5914 11.3648 17.0739 9.99985C16.0441 7.08604 13.2648 4.99984 10.0004 4.99984C8.87957 4.99984 7.81751 5.2452 6.8637 5.68503ZM11.6103 10.4317C11.6471 10.294 11.6667 10.1493 11.6667 9.99984C11.6667 9.07936 10.9205 8.33317 10 8.33317C9.85054 8.33317 9.70582 8.35273 9.56816 8.38949L11.6103 10.4317ZM3.85407 6.81132C4.22106 7.08905 4.29343 7.6117 4.0157 7.9787C3.5552 8.5872 3.18569 9.26762 2.9269 9.99981C3.95666 12.9136 6.73592 14.9998 10.0004 14.9998C10.4819 14.9998 10.9521 14.9546 11.4071 14.8683C11.8593 14.7825 12.2954 15.0796 12.3811 15.5318C12.4669 15.9839 12.1698 16.42 11.7176 16.5058C11.1608 16.6114 10.5866 16.6665 10.0004 16.6665C5.89461 16.6665 2.42133 13.9678 1.2535 10.2495C1.20245 10.087 1.20245 9.91265 1.2535 9.7501C1.57176 8.73681 2.06092 7.79985 2.68669 6.97295C2.96442 6.60595 3.48707 6.53359 3.85407 6.81132Z' fill='%2392969F'/%3E%3C/svg%3E");
+            }
+
+            &.show-toggle.on {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cg clip-path='url(%23clip0_43_1899)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.98582 13.3202C9.10182 13.3195 8.25418 12.9682 7.62894 12.3432C7.0037 11.7183 6.65193 10.8708 6.65082 9.98683C6.65082 8.1485 8.14666 6.6535 9.98582 6.6535C10.8698 6.65416 11.7175 7.00551 12.3427 7.63044C12.9679 8.25537 13.3197 9.10282 13.3208 9.98683C13.3208 11.8252 11.825 13.3202 9.98582 13.3202ZM9.99999 3.3335C5.39999 3.3335 1.66666 7.36683 1.66666 10.0002C1.66666 12.5718 5.48082 16.6668 9.99999 16.6668C14.5192 16.6668 18.3333 12.5718 18.3333 10.0002C18.3333 7.36683 14.5992 3.3335 9.99999 3.3335Z' fill='%23D9D9D9'/%3E%3Cpath d='M9.99999 11.6668C10.9205 11.6668 11.6667 10.9206 11.6667 10.0002C11.6667 9.07969 10.9205 8.3335 9.99999 8.3335C9.07952 8.3335 8.33332 9.07969 8.33332 10.0002C8.33332 10.9206 9.07952 11.6668 9.99999 11.6668Z' fill='%23D9D9D9'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_43_1899'%3E%3Crect width='20' height='20' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+            }
+        }
+    }
+
+    // input text type-1
+    &.textType-1 {
+        box-sizing: border-box;
 
         input {
-          color: $input-disabled-txt;
+            padding: 0.8rem 0;
         }
-      }
 
-      &.readonly {
-        background-color: $input-disabled-bg;
-      }
-
-      &.bg-gray {
-        background-color: $readonly-color;
-      }
-
-      input {
-        line-height: 2.4rem;
-
-        &::placeholder {
-          color: $text-sub-color;
+        .inline-flex {
+            width: 100%;
+            align-items: center;
+            border-bottom-width: 0.1rem;
         }
-      }
     }
 
-    &.readOnly {
-      .inline-flex {
-        background-color: $readonly-color;
-      }
-    }
-  }
+    // input text type-2
+    &.textType-2 {
+        .inline-flex {
+            width: 100%;
+            align-items: center;
+            border-radius: 0.8rem;
+            border-width: 0.1rem;
+            padding: 1.1rem 1.6rem;
+            background-color: $white-color;
 
-  &.error {
-    .inline-flex {
-      border-color: $error-color;
+            &.disabled {
+                border-color: $input-disabled-line;
+                background-color: $input-disabled-bg;
+
+                input {
+                    color: $input-disabled-txt;
+                }
+            }
+
+            &.readonly {
+                background-color: $input-disabled-bg;
+            }
+
+            &.bg-gray {
+                background-color: $readonly-color;
+            }
+
+            input {
+                line-height: 2.4rem;
+
+                &::placeholder {
+                    color: $text-sub-color;
+                }
+            }
+        }
+
+        &.readOnly {
+            .inline-flex {
+                background-color: $readonly-color;
+            }
+        }
     }
-  }
+
+    &.error {
+        .inline-flex {
+            border-color: $error-color;
+        }
+    }
 }
 /* 공통 input 스타일 끝 */
 
 /* error text 시작 */
 .error-txt {
-  color: $error-color;
-  @include font(1.6rem, 400, 2.4rem);
-  padding: 0.6rem 1.4rem;
+    color: $error-color;
+    @include font(1.6rem, 400, 2.4rem);
+    padding: 0.6rem 1.4rem;
 }
 /* error text 끝 */
 
 /* 일반 셀렉트박스 시작 */
 .select-box {
-  select {
-    width: 100%;
-    border: 0;
-    font-size: 1.7rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    padding: 1.1rem 1.6rem;
-    color: $input-txt;
-    border-radius: 0.8rem;
-    border: 0.1rem solid $input-line;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.57757 6.91058C3.90301 6.58514 4.43065 6.58514 4.75609 6.91058L10.0002 12.1547L15.2442 6.91058C15.5697 6.58514 16.0973 6.58514 16.4228 6.91058C16.7482 7.23602 16.7482 7.76366 16.4228 8.08909L10.5894 13.9224C10.264 14.2479 9.73634 14.2479 9.41091 13.9224L3.57757 8.08909C3.25214 7.76366 3.25214 7.23602 3.57757 6.91058Z' fill='black'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: 2rem;
-    background-position: calc(100% - 1.6rem) center;
+    select {
+        width: 100%;
+        border: 0;
+        font-size: 1.7rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 1.2rem 1.6rem;
+        color: $input-txt;
+        border-radius: 0.8rem;
+        border: 0.1rem solid $input-line;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.57757 6.91058C3.90301 6.58514 4.43065 6.58514 4.75609 6.91058L10.0002 12.1547L15.2442 6.91058C15.5697 6.58514 16.0973 6.58514 16.4228 6.91058C16.7482 7.23602 16.7482 7.76366 16.4228 8.08909L10.5894 13.9224C10.264 14.2479 9.73634 14.2479 9.41091 13.9224L3.57757 8.08909C3.25214 7.76366 3.25214 7.23602 3.57757 6.91058Z' fill='black'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 2rem;
+        background-position: calc(100% - 1.6rem) center;
 
-    &:disabled {
-      color: $input-disabled-txt;
-      border-color: $input-disabled-line;
-      background-color: $input-disabled-bg;
+        &:disabled {
+            color: $input-disabled-txt;
+            border-color: $input-disabled-line;
+            background-color: $input-disabled-bg;
+        }
+
+        &.readonly {
+            pointer-events: none;
+            background-color: $input-disabled-bg;
+        }
     }
 
-    &.readonly {
-      pointer-events: none;
-      background-color: $input-disabled-bg;
+    &.error select,
+    select.error {
+        border-color: $error-color;
     }
-  }
-
-  &.error select,
-  select.error {
-    border-color: $error-color;
-  }
 }
 /* 일반 셀렉트박스 끝 */
-
-/* custom 셀렉트박스(현재 사용 안함) 시작 */
-.dropdown {
-  width: 100%;
-  border: 0.1rem solid $text-sub-color;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 0.8rem;
-
-  .dropdown-selected {
-    border-radius: 0.8rem;
-    padding: 1.1rem 1.6rem;
-    background-color: $white-color;
-    position: relative;
-
-    &::before {
-      content: '';
-      display: block;
-      width: 2rem;
-      height: 2rem;
-      position: absolute;
-      right: 1.6rem;
-      top: 50%;
-      margin-top: -1rem;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 2rem;
-      transition: 0.1s transform ease-in-out;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.57739 6.91058C3.90283 6.58514 4.43047 6.58514 4.7559 6.91058L9.99998 12.1547L15.2441 6.91058C15.5695 6.58514 16.0971 6.58514 16.4226 6.91058C16.748 7.23602 16.748 7.76366 16.4226 8.08909L10.5892 13.9224C10.2638 14.2479 9.73616 14.2479 9.41072 13.9224L3.57739 8.08909C3.25195 7.76366 3.25195 7.23602 3.57739 6.91058Z' fill='%2392969F'/%3E%3C/svg%3E");
-    }
-
-    &.open {
-      &::before {
-        transform: rotate(180deg);
-      }
-    }
-  }
-}
-.dropdown-content {
-  position: absolute;
-  width: 100%;
-  border: 0.1rem solid $box-line;
-  background-color: $white-color;
-  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  display: none;
-
-  &.show {
-    display: block;
-  }
-
-  .dropdown-item {
-    padding: 1rem;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: $background-color;
-    }
-  }
-}
-/* custom 셀렉트박스(현재 사용 안함) 끝 */
 
 /* checkbox & radio 시작 */
 .checkbox input:checked,
 .radio input:checked,
 .checkbox input:focus,
 .radio input:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
 .checkbox,
 .radio {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  margin: 0.4rem 0;
-  cursor: pointer;
-  vertical-align: middle;
-  color: $base-txt-color;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-  // 토글타입
-  &.toggle-type-1 {
-    font-size: 0;
-    .lbl {
-      width: 4.8rem;
-      height: 2.8rem;
-      position: relative;
-      background-color: $primary-blue2;
-      border: 0.1rem solid $primary-blue2;
-      border-radius: 1.4rem;
-      padding: 0;
-      &::before {
-        content: '';
-        display: block;
-        width: 1.8rem;
-        height: 1.8rem;
-        position: absolute;
-        left: 0.4rem;
-        top: 50%;
-        border-radius: 50%;
-        transform: translateY(-50%);
-        background-color: $white-color;
-        border-color: $white-color;
-        box-sizing: border-box;
-        transition: 0.1s ease-in-out left;
-      }
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin: 0.4rem 0;
+    cursor: pointer;
+    vertical-align: middle;
+    color: $base-txt-color;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    // 토글타입
+    &.toggle-type-1 {
+        font-size: 0;
+        .lbl {
+            width: 4.8rem;
+            height: 2.8rem;
+            position: relative;
+            background-color: $primary-blue2;
+            border: 0.1rem solid $primary-blue2;
+            border-radius: 1.4rem;
+            padding: 0;
+            &::before {
+                content: "";
+                display: block;
+                width: 1.8rem;
+                height: 1.8rem;
+                position: absolute;
+                left: 0.4rem;
+                top: 50%;
+                border-radius: 50%;
+                transform: translateY(-50%);
+                background-color: $white-color;
+                border-color: $white-color;
+                box-sizing: border-box;
+                transition: 0.1s ease-in-out left;
+            }
 
-      &::after {
-        content: none;
-      }
+            &::after {
+                content: none;
+            }
+        }
+
+        input:focus + .lbl {
+            &::after {
+                outline: 0.1rem dashed $error-color;
+            }
+        }
+
+        input:checked + .lbl {
+            background-color: $input-focus-line;
+            border-color: $primary-blue4;
+
+            &::before {
+                background-color: $white-color;
+                border-color: $white-color;
+                left: calc(100% - 2.2rem);
+            }
+        }
     }
 
-    input:focus + .lbl {
-      &::after {
-        outline: 0.1rem dashed $error-color;
-      }
+    span {
+        display: inline-block;
+        line-height: 2rem;
+        padding-top: 0;
     }
 
-    input:checked + .lbl {
-      background-color: $input-focus-line;
-      border-color: $primary-blue4;
-
-      &::before {
-        background-color: $white-color;
-        border-color: $white-color;
-        left: calc(100% - 2.2rem);
-      }
-    }
-  }
-
-  span {
-    display: inline-block;
-    line-height: 2rem;
-    padding-top: 0;
-  }
-
-  & + .checkbox,
-  & + .radio {
-    margin-left: 2.4rem;
-  }
-
-  // 싱글 타입
-  &.singleType {
-    input + .lbl {
-      padding-left: 2.4rem;
-    }
-  }
-
-  // 별모양 타입
-  &.favoriteType {
-    margin: 0;
-
-    input + .lbl {
-      top: 0;
-      padding-left: 2.4rem;
-      line-height: 2.4rem;
-      min-height: 2.4rem;
-
-      &:before {
-        border: none;
-        width: 2.4rem;
-        height: 2.4rem;
-        border-radius: 0;
-        transition: 0.3s ease-in-out background;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.5985 2.27125C11.1719 1.10945 12.8285 1.10945 13.4019 2.27125L15.9743 7.48341L21.7262 8.31922C23.0083 8.50552 23.5203 10.0811 22.5925 10.9854L18.4304 15.0426L19.4129 20.7713C19.6319 22.0482 18.2917 23.022 17.1449 22.4191L12.0002 19.7144L6.85547 22.4191C5.70872 23.022 4.36844 22.0482 4.58745 20.7713L5.57 15.0426L1.40784 10.9854C0.480092 10.0811 0.992034 8.50552 2.27415 8.31922L8.02611 7.48341L10.5985 2.27125ZM12.0002 3.95016L9.71794 8.5745C9.49025 9.03585 9.05013 9.35562 8.541 9.4296L3.43773 10.1711L7.13049 13.7707C7.4989 14.1298 7.66701 14.6472 7.58004 15.1543L6.7083 20.2369L11.2728 17.8372C11.7282 17.5978 12.2722 17.5978 12.7276 17.8372L17.2921 20.2369L16.4203 15.1543C16.3334 14.6472 16.5015 14.1298 16.8699 13.7707L20.5626 10.1711L15.4594 9.4296C14.9503 9.35562 14.5101 9.03585 14.2824 8.5745L12.0002 3.95016Z' fill='%23CCCCCC'/%3E%3C/svg%3E");
-      }
-
-      &::after {
-        content: none;
-      }
+    & + .checkbox,
+    & + .radio {
+        margin-left: 2.4rem;
     }
 
-    input:checked + .lbl {
-      &::before {
-        background-color: transparent;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.5985 2.27125C11.1719 1.10945 12.8285 1.10945 13.4019 2.27125L15.9743 7.48341L21.7262 8.31922C23.0083 8.50552 23.5203 10.0811 22.5925 10.9854L18.4304 15.0426L19.4129 20.7713C19.6319 22.0482 18.2917 23.022 17.1449 22.4191L12.0002 19.7144L6.85547 22.4191C5.70872 23.022 4.36844 22.0482 4.58745 20.7713L5.57 15.0426L1.40784 10.9854C0.480092 10.0811 0.992034 8.50552 2.27415 8.31922L8.02611 7.48341L10.5985 2.27125Z' fill='%23FFD338'/%3E%3C/svg%3E");
-      }
-    }
-  }
-
-  // 아이콘 타입
-  &.iconType {
-    margin: 0;
-
-    input + .lbl {
-      top: 0;
-      padding-left: 2.4rem;
-
-      &:before {
-        content: none;
-      }
-
-      &::after {
-        border-color: $box-line;
-        top: 0.8rem;
-        left: 0.7rem;
-      }
+    // 싱글 타입
+    &.singleType {
+        input + .lbl {
+            padding-left: 2.4rem;
+        }
     }
 
-    input:checked + .lbl {
-      // background-color: #f8fbff;
-      border-radius: 0.6rem;
+    // 별모양 타입
+    &.favoriteType {
+        margin: 0;
 
-      &::after {
-        border-color: $input-focus-line;
-      }
+        input + .lbl {
+            top: 0;
+            padding-left: 2.4rem;
+            line-height: 2.4rem;
+            min-height: 2.4rem;
+
+            &:before {
+                border: none;
+                width: 2.4rem;
+                height: 2.4rem;
+                border-radius: 0;
+                transition: 0.3s ease-in-out background;
+                background-color: transparent;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.5985 2.27125C11.1719 1.10945 12.8285 1.10945 13.4019 2.27125L15.9743 7.48341L21.7262 8.31922C23.0083 8.50552 23.5203 10.0811 22.5925 10.9854L18.4304 15.0426L19.4129 20.7713C19.6319 22.0482 18.2917 23.022 17.1449 22.4191L12.0002 19.7144L6.85547 22.4191C5.70872 23.022 4.36844 22.0482 4.58745 20.7713L5.57 15.0426L1.40784 10.9854C0.480092 10.0811 0.992034 8.50552 2.27415 8.31922L8.02611 7.48341L10.5985 2.27125ZM12.0002 3.95016L9.71794 8.5745C9.49025 9.03585 9.05013 9.35562 8.541 9.4296L3.43773 10.1711L7.13049 13.7707C7.4989 14.1298 7.66701 14.6472 7.58004 15.1543L6.7083 20.2369L11.2728 17.8372C11.7282 17.5978 12.2722 17.5978 12.7276 17.8372L17.2921 20.2369L16.4203 15.1543C16.3334 14.6472 16.5015 14.1298 16.8699 13.7707L20.5626 10.1711L15.4594 9.4296C14.9503 9.35562 14.5101 9.03585 14.2824 8.5745L12.0002 3.95016Z' fill='%23CCCCCC'/%3E%3C/svg%3E");
+            }
+
+            &::after {
+                content: none;
+            }
+        }
+
+        input:checked + .lbl {
+            &::before {
+                background-color: transparent;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.5985 2.27125C11.1719 1.10945 12.8285 1.10945 13.4019 2.27125L15.9743 7.48341L21.7262 8.31922C23.0083 8.50552 23.5203 10.0811 22.5925 10.9854L18.4304 15.0426L19.4129 20.7713C19.6319 22.0482 18.2917 23.022 17.1449 22.4191L12.0002 19.7144L6.85547 22.4191C5.70872 23.022 4.36844 22.0482 4.58745 20.7713L5.57 15.0426L1.40784 10.9854C0.480092 10.0811 0.992034 8.50552 2.27415 8.31922L8.02611 7.48341L10.5985 2.27125Z' fill='%23FFD338'/%3E%3C/svg%3E");
+            }
+        }
     }
-  }
+
+    // 아이콘 타입
+    &.iconType {
+        margin: 0;
+
+        input + .lbl {
+            top: 0;
+            padding-left: 2.4rem;
+
+            &:before {
+                content: none;
+            }
+
+            &::after {
+                border-color: $box-line;
+                top: 0.8rem;
+                left: 0.7rem;
+            }
+        }
+
+        input:checked + .lbl {
+            // background-color: #f8fbff;
+            border-radius: 0.6rem;
+
+            &::after {
+                border-color: $input-focus-line;
+            }
+        }
+    }
 }
 
 .checkbox input,
 .radio input {
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
 }
 
 .checkbox input + .lbl,
 .radio input + .lbl {
-  position: relative;
-  top: -0.1rem;
-  display: inline-block;
-  line-height: 2.4rem;
-  min-height: 2.4rem;
-  padding: 0 0 0 3.2rem;
-  font-weight: normal;
-  vertical-align: top;
-  word-break: break-all;
-  z-index: 2;
+    position: relative;
+    top: -0.1rem;
+    display: inline-block;
+    line-height: 2.4rem;
+    min-height: 2.4rem;
+    padding: 0 0 0 3.2rem;
+    font-weight: normal;
+    vertical-align: top;
+    word-break: break-all;
+    z-index: 2;
 }
 
 .focus-visible {
-  &::before {
-    outline: 0.1rem dashed $error-color;
-  }
+    &::before {
+        outline: 0.1rem dashed $error-color;
+    }
 }
 
 .checkbox input + .lbl:before,
 .radio input + .lbl:before {
-  content: '';
-  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.05);
-  display: inline-block;
-  height: 2.4rem;
-  width: 2.4rem;
-  position: absolute;
-  left: 0;
-  top: 0;
-  box-sizing: border-box;
-  border-radius: 0.6rem;
+    content: "";
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.05);
+    display: inline-block;
+    height: 2.4rem;
+    width: 2.4rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    border-radius: 0.6rem;
 }
 
 .radio input + .lbl:before {
-  background-color: $white-color;
-  border: 0.2rem solid $box-line;
-  border-radius: 50%;
+    background-color: $white-color;
+    border: 0.2rem solid $box-line;
+    border-radius: 50%;
 }
 
 .checkbox input + .lbl:before {
-  background-color: $white-color;
-  border: 0.2rem solid $box-line;
+    background-color: $white-color;
+    border: 0.2rem solid $box-line;
 }
 
 .radio input:focus + .lbl:before,
 .checkbox input:focus + .lbl:before {
-  outline: 0.1rem dashed $error-color;
+    outline: 0.1rem dashed $error-color;
 }
 
 .checkbox input + .lbl:after {
-  border-radius: 0;
-  width: 0.9rem;
-  height: 0.5rem;
-  top: 0.7rem;
-  left: 0.7rem;
-  border: 0.2rem solid $box-line;
-  border-top: none;
-  border-right: none;
-  background: transparent;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+    border-radius: 0;
+    width: 0.9rem;
+    height: 0.5rem;
+    top: 0.7rem;
+    left: 0.7rem;
+    border: 0.2rem solid $box-line;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 .checkbox input + .lbl:after,
 .radio input + .lbl:after {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  background-color: $white-color;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background-color: $white-color;
 }
 
 .radio input + .lbl:after {
-  width: 1.2rem;
-  height: 1.2rem;
-  opacity: 0;
-  left: 0.6rem;
-  top: 0.6rem;
-  border-radius: 50%;
-  background-color: $white-color;
-  transform: scale(0);
+    width: 1.2rem;
+    height: 1.2rem;
+    opacity: 0;
+    left: 0.6rem;
+    top: 0.6rem;
+    border-radius: 50%;
+    background-color: $white-color;
+    transform: scale(0);
 }
 
 .checkbox input:disabled + .lbl + span,
 .checkbox input:disabled + .lbl + span {
-  color: $disable-color;
+    color: $disable-color;
 }
 
 .radio input:checked + .lbl::before,
 .checkbox input:checked + .lbl::before {
-  background-color: $input-focus-line;
-  border-color: $input-focus-line;
+    background-color: $input-focus-line;
+    border-color: $input-focus-line;
 }
 
 .radio input:disabled + .lbl::before,
 .checkbox input:disabled + .lbl::before {
-  background-color: $readonly-color;
-  border-color: #b4bdcd;
+    background-color: $readonly-color;
+    border-color: #b4bdcd;
 }
 
 .checkbox input:disabled + .lbl::after {
-  background-color: transparent;
-  border-color: transparent;
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .checkbox input:disabled:checked + .lbl::before {
-  background-color: $primary-blue1;
-  border-color: $primary-blue1;
+    background-color: $primary-blue1;
+    border-color: $primary-blue1;
 }
 
 .checkbox input:checked + .lbl + span,
 .radio input:checked + .lbl + span {
-  font-weight: 400;
+    font-weight: 400;
 }
 
 .checkbox input:checked + .lbl:after {
-  border-color: $white-color;
-  background: none;
-  top: 1.15rem;
-  left: 0.6rem;
-  transform-origin: left top;
-  transform: rotate(-45deg);
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.5s;
-  animation-name: checkmark;
+    border-color: $white-color;
+    background: none;
+    top: 1.15rem;
+    left: 0.6rem;
+    transform-origin: left top;
+    transform: rotate(-45deg);
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    animation-name: checkmark;
 }
 
 .radio.type-check input + .lbl:after {
-  border-radius: 0;
-  width: 0.9rem;
-  height: 0.5rem;
-  top: 0.7rem;
-  left: 0.7rem;
-  opacity: 1;
-  border: 0.2rem solid $box-line;
-  border-top: none;
-  border-right: none;
-  background: transparent;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+    border-radius: 0;
+    width: 0.9rem;
+    height: 0.5rem;
+    top: 0.7rem;
+    left: 0.7rem;
+    opacity: 1;
+    border: 0.2rem solid $box-line;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 .radio.type-check input:checked + .lbl:after {
-  border-color: $white-color;
-  background: none;
-  top: 1.15rem;
-  left: 0.6rem;
-  width: 0.9rem;
-  height: 0.5rem;
-  transform-origin: left top;
-  transform: rotate(-45deg);
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.5s;
-  animation-name: checkmark;
+    border-color: $white-color;
+    background: none;
+    top: 1.15rem;
+    left: 0.6rem;
+    width: 0.9rem;
+    height: 0.5rem;
+    transform-origin: left top;
+    transform: rotate(-45deg);
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    animation-name: checkmark;
 }
 
 .radio input:checked + .lbl:after {
-  content: '';
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  left: 1.2rem;
-  top: 50%;
-  background-color: $white-color;
-  transform: translate(-50%, -50%);
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.2s;
-  animation-name: radiomark;
-  opacity: 1;
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    left: 1.2rem;
+    top: 50%;
+    background-color: $white-color;
+    transform: translate(-50%, -50%);
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.2s;
+    animation-name: radiomark;
+    opacity: 1;
 }
 
 @keyframes checkmark {
-  0% {
-    height: 0;
-    width: 0;
-    opacity: 1;
-  }
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 1;
+    }
 
-  20% {
-    width: 0;
-    height: 0.5rem;
-    opacity: 1;
-  }
+    20% {
+        width: 0;
+        height: 0.5rem;
+        opacity: 1;
+    }
 
-  40% {
-    width: 0.9rem;
-    height: 0.5rem;
-    opacity: 1;
-  }
+    40% {
+        width: 0.9rem;
+        height: 0.5rem;
+        opacity: 1;
+    }
 
-  100% {
-    width: 0.9rem;
-    height: 0.5rem;
-    opacity: 1;
-  }
+    100% {
+        width: 0.9rem;
+        height: 0.5rem;
+        opacity: 1;
+    }
 }
 @keyframes radiomark {
-  0% {
-    height: 0;
-    width: 0;
-    opacity: 0;
-  }
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
 
-  100% {
-    width: 1rem;
-    height: 1rem;
-    opacity: 1;
-  }
+    100% {
+        width: 1rem;
+        height: 1rem;
+        opacity: 1;
+    }
 }
 
 .radio-tabType-1 {
-  display: inline-flex;
-  background-color: $line-color;
-  border-radius: 0.9rem;
-  width: 21rem;
-  padding: 0.3rem;
+    display: inline-flex;
+    background-color: $line-color;
+    border-radius: 0.9rem;
+    width: 21rem;
+    padding: 0.3rem;
 
-  .radio {
-    flex: 1 1 auto;
-    width: 100%;
-    margin: 0;
+    .radio {
+        flex: 1 1 auto;
+        width: 100%;
+        margin: 0;
 
-    .lbl {
-      padding: 0;
-      min-height: 0;
-      line-height: 0;
-      display: inline;
+        .lbl {
+            padding: 0;
+            min-height: 0;
+            line-height: 0;
+            display: inline;
 
-      &::before,
-      &::after {
-        content: none;
-      }
-    }
-
-    input {
-      height: 0;
-
-      &:checked + .lbl {
-        &::after {
-          content: none;
+            &::before,
+            &::after {
+                content: none;
+            }
         }
-      }
 
-      &:checked + .lbl + span {
-        color: $black-color;
-        background-color: $white-color;
-      }
-    }
+        input {
+            height: 0;
 
-    .focus-visible + span {
-      outline: 0.1rem dashed $error-color;
-    }
+            &:checked + .lbl {
+                &::after {
+                    content: none;
+                }
+            }
 
-    span {
-      display: block;
-      text-align: center;
-      width: 100%;
-      font-size: 1.4rem;
-      line-height: 2rem;
-      padding: 0.7rem 1.4rem;
-      font-weight: 600;
-      color: $text-sub-color;
-      border-radius: 0.6rem;
+            &:checked + .lbl + span {
+                color: $black-color;
+                background-color: $white-color;
+            }
+        }
+
+        .focus-visible + span {
+            outline: 0.1rem dashed $error-color;
+        }
+
+        span {
+            display: block;
+            text-align: center;
+            width: 100%;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            padding: 0.7rem 1.4rem;
+            font-weight: 600;
+            color: $text-sub-color;
+            border-radius: 0.6rem;
+        }
     }
-  }
 }
 
 .radio-tabType-2 {
-  display: flex;
-  background-color: $white-color;
-  .radio {
-    flex: 1 1 auto;
-    width: 100%;
-    margin: 0;
-    .lbl {
-      padding: 0;
-      min-height: 0;
-      line-height: 0;
-      display: inline;
+    display: flex;
+    background-color: $white-color;
+    .radio {
+        flex: 1 1 auto;
+        width: 100%;
+        margin: 0;
+        .lbl {
+            padding: 0;
+            min-height: 0;
+            line-height: 0;
+            display: inline;
 
-      &::before,
-      &::after {
-        content: none;
-      }
-    }
-
-    input {
-      height: 0;
-
-      &:checked + .lbl {
-        &::after {
-          content: none;
+            &::before,
+            &::after {
+                content: none;
+            }
         }
-      }
 
-      &:checked + .lbl + span {
-        color: $black-color;
-        border-color: $base-txt-color;
-        font-weight: 600;
-        box-shadow: 0.1rem 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.08);
-        &:after {
-          content: '';
-          display: block;
-          width: 0.1rem;
-          height: 100%;
-          background-color: $base-txt-color;
-          left: 0;
-          top: 0;
-          position: absolute;
+        input {
+            height: 0;
+
+            &:checked + .lbl {
+                &::after {
+                    content: none;
+                }
+            }
+
+            &:checked + .lbl + span {
+                color: $black-color;
+                border-color: $base-txt-color;
+                font-weight: 600;
+                box-shadow: 0.1rem 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.08);
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 0.1rem;
+                    height: 100%;
+                    background-color: $base-txt-color;
+                    left: 0;
+                    top: 0;
+                    position: absolute;
+                }
+            }
         }
-      }
-    }
 
-    .focus-visible + span {
-      outline: 0.1rem dashed $error-color;
-    }
-
-    span {
-      display: block;
-      text-align: center;
-      width: 100%;
-      font-size: 1.6rem;
-      line-height: 2.4rem;
-      padding: 1.2rem 0.5rem 1rem;
-      font-weight: 400;
-      border: 0.1rem solid $box-line;
-      border-left-width: 0;
-      color: $base-txt-color;
-      position: relative;
-    }
-
-    &:first-child {
-      span {
-        border-left-width: 0.1rem;
-        border-top-left-radius: 0.8rem;
-        border-bottom-left-radius: 0.8rem;
-      }
-
-      input:checked + .lbl + span {
-        &::after {
-          content: none;
+        .focus-visible + span {
+            outline: 0.1rem dashed $error-color;
         }
-      }
-    }
 
-    &:last-child {
-      span {
-        border-top-right-radius: 0.8rem;
-        border-bottom-right-radius: 0.8rem;
-      }
+        span {
+            display: block;
+            text-align: center;
+            width: 100%;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+            padding: 1.2rem 0.5rem 1rem;
+            font-weight: 400;
+            border: 0.1rem solid $box-line;
+            border-left-width: 0;
+            color: $base-txt-color;
+            position: relative;
+        }
+
+        &:first-child {
+            span {
+                border-left-width: 0.1rem;
+                border-top-left-radius: 0.8rem;
+                border-bottom-left-radius: 0.8rem;
+            }
+
+            input:checked + .lbl + span {
+                &::after {
+                    content: none;
+                }
+            }
+        }
+
+        &:last-child {
+            span {
+                border-top-right-radius: 0.8rem;
+                border-bottom-right-radius: 0.8rem;
+            }
+        }
     }
-  }
 }
 
 .radio-type-bar {
-  .radio {
-    display: block;
-    margin: 0;
+    .radio {
+        display: block;
+        margin: 0;
 
-    .lbl {
-      display: none;
-    }
+        .lbl {
+            display: none;
+        }
 
-    span {
-      padding: 1.2rem 1.6rem;
-      @include font(1.6rem, 400, 2.4rem);
-      color: $black-color;
-      border: 0.1rem solid #d9d9d9;
-      display: block;
-      border-radius: 0.8rem;
-    }
+        span {
+            padding: 1.2rem 1.6rem;
+            @include font(1.6rem, 400, 2.4rem);
+            color: $black-color;
+            border: 0.1rem solid #d9d9d9;
+            display: block;
+            border-radius: 0.8rem;
+        }
 
-    & + .radio {
-      margin-top: 1.2rem;
-    }
+        & + .radio {
+            margin-top: 1.2rem;
+        }
 
-    input:checked + .lbl + span {
-      border: 0.1rem solid $input-focus-line;
-      background-color: #f8fbff;
+        input:checked + .lbl + span {
+            border: 0.1rem solid $input-focus-line;
+            background-color: #f8fbff;
+        }
     }
-  }
 }
 
 .radio-type-btn {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  .radio {
-    margin: 0;
-    .lbl {
-      display: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    .radio {
+        margin: 0;
+        .lbl {
+            display: none;
+        }
+        span {
+            padding: 0.9rem 2rem;
+            @include font(1.4rem, 700, 2rem);
+            color: $text-body-color;
+            border: 0.1rem solid $text-body-color;
+            display: block;
+            border-radius: 2rem;
+            font-weight: 700;
+        }
+        input:checked + .lbl + span {
+            border-color: #333;
+            background-color: #333;
+            color: $white-color;
+        }
     }
-    span {
-      padding: 0.9rem 2rem;
-      @include font(1.4rem, 700, 2rem);
-      color: $text-body-color;
-      border: 0.1rem solid $text-body-color;
-      display: block;
-      border-radius: 2rem;
-      font-weight: 700;
-    }
-    input:checked + .lbl + span {
-      border-color: #333;
-      background-color: #333;
-      color: $white-color;
-    }
-  }
 }
 /* checkbox & radio 끝 */
 
 /* 파일 업로드 시작 */
 .file-box {
-  box-sizing: border-box;
-  border: 0.1rem solid $input-focus-line;
-  background-color: $white-color;
-  border-radius: 0.8rem;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  height: 4.8rem;
-
-  &:focus {
-    outline: 0.1rem dashed $error-color;
-  }
-
-  .file-label {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center;
+    box-sizing: border-box;
+    border: 0.1rem solid $input-focus-line;
+    background-color: $white-color;
+    border-radius: 0.8rem;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    height: 4.8rem;
 
     &:focus {
-      outline: 0.1rem dashed $error-color;
+        outline: 0.1rem dashed $error-color;
     }
 
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+    .file-label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        align-items: center;
+        justify-content: center;
 
-    .file-txt {
-      position: relative;
-      font-size: 1.6rem;
-      font-weight: 600;
-      align-items: center;
-      display: inline-flex;
-      color: $input-focus-line;
+        &:focus {
+            outline: 0.1rem dashed $error-color;
+        }
 
-      &::before {
-        content: '';
-        width: 1.6rem;
-        height: 1.6rem;
-        display: block;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        margin-right: 0.6rem;
-        background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.08868 3.25024L4.80968 7.64369C3.50794 8.94544 3.5079 11.0559 4.80964 12.3577C6.11139 13.6594 8.22194 13.6594 9.52369 12.3577L9.52424 12.3571L13.6958 8.19538C13.9565 7.93534 14.3786 7.93583 14.6386 8.19649C14.8987 8.45715 14.8982 8.87925 14.6375 9.1393L10.4665 13.3005C10.4664 13.3006 10.4666 13.3004 10.4665 13.3005C8.64403 15.1227 5.68918 15.1229 3.86683 13.3005C2.04547 11.4791 2.04439 8.52679 3.8636 6.70408L8.14294 2.31027C9.44468 1.00853 11.5553 1.00857 12.857 2.31032C14.1577 3.61097 14.1588 5.71908 12.8603 7.02109L8.58092 11.4149C7.79987 12.196 6.5335 12.1959 5.75245 11.4149C4.97141 10.6338 4.9714 9.36751 5.75245 8.58646L10.143 4.19593C10.4033 3.93558 10.8254 3.93558 11.0858 4.19593C11.3461 4.45628 11.3461 4.87839 11.0858 5.13874L6.69526 9.52927C6.43491 9.78962 6.43491 10.2117 6.69526 10.4721C6.95475 10.7316 7.37493 10.7324 7.63548 10.4747L11.9142 6.08151C12.6952 5.30046 12.6953 4.03417 11.9142 3.25312C11.1341 2.47304 9.86995 2.47208 9.08868 3.25024Z' fill='%230055B9'/%3E%3C/svg%3E%0A");
-      }
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        .file-txt {
+            position: relative;
+            font-size: 1.6rem;
+            font-weight: 600;
+            align-items: center;
+            display: inline-flex;
+            color: $input-focus-line;
+
+            &::before {
+                content: "";
+                width: 1.6rem;
+                height: 1.6rem;
+                display: block;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-right: 0.6rem;
+                background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.08868 3.25024L4.80968 7.64369C3.50794 8.94544 3.5079 11.0559 4.80964 12.3577C6.11139 13.6594 8.22194 13.6594 9.52369 12.3577L9.52424 12.3571L13.6958 8.19538C13.9565 7.93534 14.3786 7.93583 14.6386 8.19649C14.8987 8.45715 14.8982 8.87925 14.6375 9.1393L10.4665 13.3005C10.4664 13.3006 10.4666 13.3004 10.4665 13.3005C8.64403 15.1227 5.68918 15.1229 3.86683 13.3005C2.04547 11.4791 2.04439 8.52679 3.8636 6.70408L8.14294 2.31027C9.44468 1.00853 11.5553 1.00857 12.857 2.31032C14.1577 3.61097 14.1588 5.71908 12.8603 7.02109L8.58092 11.4149C7.79987 12.196 6.5335 12.1959 5.75245 11.4149C4.97141 10.6338 4.9714 9.36751 5.75245 8.58646L10.143 4.19593C10.4033 3.93558 10.8254 3.93558 11.0858 4.19593C11.3461 4.45628 11.3461 4.87839 11.0858 5.13874L6.69526 9.52927C6.43491 9.78962 6.43491 10.2117 6.69526 10.4721C6.95475 10.7316 7.37493 10.7324 7.63548 10.4747L11.9142 6.08151C12.6952 5.30046 12.6953 4.03417 11.9142 3.25312C11.1341 2.47304 9.86995 2.47208 9.08868 3.25024Z' fill='%230055B9'/%3E%3C/svg%3E%0A");
+            }
+        }
     }
-  }
 
-  input {
-    position: absolute;
-    opacity: 0;
-    left: 0;
-    top: 0;
-    width: 0;
-  }
+    input {
+        position: absolute;
+        opacity: 0;
+        left: 0;
+        top: 0;
+        width: 0;
+    }
 
-  &.highlight {
-    border-color: $black-color;
-  }
+    &.highlight {
+        border-color: $black-color;
+    }
 
-  .btn-date:focus,
-  .file-label:focus,
-  .file-txt:focus {
-    outline: 0.1rem dashed $error-color;
-    /* 예제 스타일 */
-  }
+    .btn-date:focus,
+    .file-label:focus,
+    .file-txt:focus {
+        outline: 0.1rem dashed $error-color;
+        /* 예제 스타일 */
+    }
 }
 /* 파일 업로드 끝 */
 
 /* 파일 업로드 후 섬네일 스타일 시작 */
 .imageItem {
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  margin-top: 1.2rem;
-  gap: 0.3rem;
-  @include media-min-width(1024) {
-    font-size: 0;
-    gap: 0;
-    width: auto;
-    margin-left: -0.6rem;
-    margin-right: -0.6rem;
-  }
-  li {
-    max-width: 11.3rem;
-    box-sizing: border-box;
-    flex: 1 1 30%;
-    width: 33.333%;
-    position: relative;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+    gap: 0.3rem;
     @include media-min-width(1024) {
-      padding: 0.6rem;
-      flex: 1 1 20%;
-      width: 20%;
-      max-width: 20%;
+        font-size: 0;
+        gap: 0;
+        width: auto;
+        margin-left: -0.6rem;
+        margin-right: -0.6rem;
     }
-    label {
-      width: 100%;
-      display: block;
-      padding-bottom: 100%;
-      cursor: pointer;
-      position: relative;
-      box-sizing: border-box;
+    li {
+        max-width: 11.3rem;
+        box-sizing: border-box;
+        flex: 1 1 30%;
+        width: 33.333%;
+        position: relative;
+        @include media-min-width(1024) {
+            padding: 0.6rem;
+            flex: 1 1 20%;
+            width: 20%;
+            max-width: 20%;
+        }
+        label {
+            width: 100%;
+            display: block;
+            padding-bottom: 100%;
+            cursor: pointer;
+            position: relative;
+            box-sizing: border-box;
 
-      input {
-        width: 100%;
-        height: 100%;
-        // opacity: 0;
-        position: absolute;
+            input {
+                width: 100%;
+                height: 100%;
+                // opacity: 0;
+                position: absolute;
 
-        &:focus {
-          outline: 0.1rem dashed $error-color;
+                &:focus {
+                    outline: 0.1rem dashed $error-color;
+                }
+
+                & + .lbl {
+                    position: absolute;
+                    box-sizing: border-box;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 10;
+                    border: 0.2rem solid #b4bdcd;
+                }
+
+                &:checked + .lbl {
+                    border-color: $input-focus-line;
+
+                    & + .btn-del {
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='11' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM8.29289 8.29289C8.68342 7.90237 9.31658 7.90237 9.70711 8.29289L12 10.5858L14.2929 8.29289C14.6834 7.90237 15.3166 7.90237 15.7071 8.29289C16.0976 8.68342 16.0976 9.31658 15.7071 9.70711L13.4142 12L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L12 13.4142L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L10.5858 12L8.29289 9.70711C7.90237 9.31658 7.90237 8.68342 8.29289 8.29289Z' fill='%232C57F3'/%3E%3C/svg%3E");
+                    }
+                }
+            }
+
+            .btn-del {
+                position: absolute;
+                z-index: 10;
+                right: 0.9rem;
+                top: 0.8rem;
+                width: 2.4rem;
+                height: 2.4rem;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='11' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM8.29289 8.29289C8.68342 7.90237 9.31658 7.90237 9.70711 8.29289L12 10.5858L14.2929 8.29289C14.6834 7.90237 15.3166 7.90237 15.7071 8.29289C16.0976 8.68342 16.0976 9.31658 15.7071 9.70711L13.4142 12L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L12 13.4142L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L10.5858 12L8.29289 9.70711C7.90237 9.31658 7.90237 8.68342 8.29289 8.29289Z' fill='%23B4BDCD'/%3E%3C/svg%3E");
+            }
         }
 
-        & + .lbl {
-          position: absolute;
-          box-sizing: border-box;
-          left: 0;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 10;
-          border: 0.2rem solid #b4bdcd;
+        img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: cover;
+            // border: 0.2rem solid $input-focus-line;
         }
-
-        &:checked + .lbl {
-          border-color: $input-focus-line;
-
-          & + .btn-del {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='11' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM8.29289 8.29289C8.68342 7.90237 9.31658 7.90237 9.70711 8.29289L12 10.5858L14.2929 8.29289C14.6834 7.90237 15.3166 7.90237 15.7071 8.29289C16.0976 8.68342 16.0976 9.31658 15.7071 9.70711L13.4142 12L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L12 13.4142L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L10.5858 12L8.29289 9.70711C7.90237 9.31658 7.90237 8.68342 8.29289 8.29289Z' fill='%232C57F3'/%3E%3C/svg%3E");
-          }
-        }
-      }
-
-      .btn-del {
-        position: absolute;
-        z-index: 10;
-        right: 0.9rem;
-        top: 0.8rem;
-        width: 2.4rem;
-        height: 2.4rem;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='11' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM8.29289 8.29289C8.68342 7.90237 9.31658 7.90237 9.70711 8.29289L12 10.5858L14.2929 8.29289C14.6834 7.90237 15.3166 7.90237 15.7071 8.29289C16.0976 8.68342 16.0976 9.31658 15.7071 9.70711L13.4142 12L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L12 13.4142L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L10.5858 12L8.29289 9.70711C7.90237 9.31658 7.90237 8.68342 8.29289 8.29289Z' fill='%23B4BDCD'/%3E%3C/svg%3E");
-      }
     }
-
-    img {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      object-fit: cover;
-      // border: 0.2rem solid $input-focus-line;
-    }
-  }
 }
 /* 파일 업로드 후 섬네일 스타일 */
 
 /* 서명패드 시작 */
 .signiture-box {
-  margin-top: 2.4rem;
+    margin-top: 2.4rem;
 
-  > .flex {
-    margin-bottom: 1.2rem;
-  }
-
-  .tit {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: $black-color;
-    @include media-min-width(1024) {
-      @include font(1.8rem, 600, 2.8rem);
+    > .flex {
+        margin-bottom: 1.2rem;
     }
-  }
-  .btn-del {
-    position: absolute;
-    right: 1rem;
-    top: 0.8rem;
-  }
+
+    .tit {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: $black-color;
+        @include media-min-width(1024) {
+            @include font(1.8rem, 600, 2.8rem);
+        }
+    }
+    .btn-del {
+        position: absolute;
+        right: 1rem;
+        top: 0.8rem;
+    }
 }
 .canvas-wrap {
-  border-radius: 0.8rem;
-  // height: 25rem;
-  border: 0.1rem solid $box-line;
-  position: relative;
-  background-color: #f9f9fb;
+    border-radius: 0.8rem;
+    // height: 25rem;
+    border: 0.1rem solid $box-line;
+    position: relative;
+    background-color: #f9f9fb;
 
-  .info-txt {
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: #b4bdcd;
-    line-height: 2.8rem;
-    font-size: 1.8rem;
-    font-weight: 700;
-  }
+    .info-txt {
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #b4bdcd;
+        line-height: 2.8rem;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
 }
 /* 서명패드 끝 */
 
 /* textarea 시작 */
 .textarea {
-  position: relative;
-
-  textarea {
-    @include font(1.8rem, 400, 2.7rem);
-    padding: 1rem 1.6rem;
-    border: 0.1rem solid $input-line;
-    border-radius: 0.8rem;
-    color: $input-txt;
-    background-color: $white-color;
-    resize: none;
-  }
-
-  .size {
-    @include font(1.6rem, 400, 2.4rem);
-    position: absolute;
-    bottom: 1rem;
-    right: 1.6rem;
-    color: $input-txt;
-
-    em {
-      color: $input-focus-line;
+    position: relative;
+    padding-bottom: 1rem;
+    textarea {
+        @include font(1.8rem, 400, 2.7rem);
+        padding: 1rem 1.6rem;
+        border: 0.1rem solid $input-line;
+        border-radius: 0.8rem;
+        color: $input-txt;
+        background-color: $white-color;
+        resize: none;
     }
-  }
+
+    .size {
+        @include font(1.6rem, 400, 2.4rem);
+        position: absolute;
+        bottom: 1rem;
+        right: 1.6rem;
+        color: $input-txt;
+
+        em {
+            color: $input-focus-line;
+        }
+    }
 }
 /* textarea 끝 */
 
 /* 필수 입력 요소 스타일 시작 */
 .msg-required {
-  @include font(1.6rem, 400, 2.4rem);
-  color: $black-color;
-  text-align: right;
-  .desc-title + &,
-  .tit-form + & {
-    margin-top: 2.4rem;
-  }
-
-  & + .form-wrap {
-    margin-top: 2.4rem;
-  }
+    @include font(1.6rem, 400, 2.4rem);
+    color: $black-color;
+    text-align: right;
+    .desc-title + &,
+    .tit-form + & {
+        margin-top: 2.4rem;
+    }
 }
 .req {
-  color: $error-color;
-  margin-left: 0.2rem;
+    color: $error-color;
+    margin-left: 0.2rem;
 }
 /* 필수 입력 요소 스타일 끝 */
 
 /* 폼 입력 그룹 스타일 시작 */
 .form-wrap {
-  border-radius: 0;
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    @include media-min-width(1024) {
-      gap: 1.2rem;
-    }
-    .required {
-      display: flex;
-      align-items: center;
-      .lbl-tit {
-        &:after {
-          content: '*';
-          color: $error-color;
-          font-size: 1.3rem;
-          font-weight: 400;
-          display: inline-block;
-          margin-left: 0.2rem;
+    border-radius: 0;
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        @include media-min-width(1024) {
+            gap: 1.2rem;
         }
-      }
-      .required-msg {
-        flex: 0 0 auto;
-        margin-left: auto;
-        color: #4d5562;
-        font-size: 1.3rem;
-        font-weight: 400;
-      }
+        .required {
+            display: flex;
+            align-items: center;
+            .lbl-tit {
+                &:after {
+                    content: "*";
+                    color: $error-color;
+                    font-size: 1.3rem;
+                    font-weight: 400;
+                    display: inline-block;
+                    margin-left: 0.2rem;
+                }
+            }
+            .required-msg {
+                flex: 0 0 auto;
+                margin-left: auto;
+                color: #4d5562;
+                font-size: 1.3rem;
+                font-weight: 400;
+            }
+        }
+        .lbl-only {
+            font-weight: 400;
+            color: $black-color;
+            @include media-min-width(1024) {
+                font-size: 1.8rem;
+                font-weight: 600;
+                line-height: 2.8rem;
+            }
+        }
+        & + .form-row {
+            // margin-top: 2.4rem;
+            @include media-min-width(1024) {
+                // margin-top: 3.2rem;
+            }
+        }
+        &.phone-row {
+            position: relative;
+            label {
+                position: absolute;
+            }
+        }
     }
-    .lbl-only {
-      font-weight: 400;
-      color: $black-color;
-      @include media-min-width(1024) {
-        font-size: 1.8rem;
-        font-weight: 600;
-        line-height: 2.8rem;
-      }
-    }
-    & + .form-row {
-      margin-top: 2.4rem;
-      @include media-min-width(1024) {
-        margin-top: 3.2rem;
-      }
-    }
-    &.phone-row {
-      position: relative;
-      label {
-        position: absolute;
-      }
-    }
-  }
 }
 /* 폼 입력 그룹 스타일 끝 */

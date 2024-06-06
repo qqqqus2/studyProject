@@ -1065,6 +1065,8 @@ input[type='number'] {
     border-radius: 0.8rem;
     color: $input-txt;
     background-color: $white-color;
+    resize: none;
+    width: 100% !important;
   }
   .size {
     @include font(1.6rem, 400, 2.4rem);
@@ -1086,7 +1088,7 @@ input[type='number'] {
     margin-top: 2.4rem;
   }
   & + .form-wrap {
-    margin-top: 2.4rem;
+    // margin-top: 2.4rem;
   }
 }
 
